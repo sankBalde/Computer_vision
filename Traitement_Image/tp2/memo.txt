@@ -1,0 +1,23 @@
+1. **Convertir d'un format à un autre** :
+
+   - `magick nuage.jpg nuage.tga` : Cette commande utilise ImageMagick pour convertir l'image "nuage.jpg" en format TGA, et enregistre la nouvelle image sous le nom "nuage.tga".
+
+   - `magick nuage.jpg nuage.ppm` : Cette commande convertit également l'image "nuage.jpg", mais cette fois-ci en format PPM (Portable Pixmap Format), et enregistre la nouvelle image sous le nom "nuage.ppm".
+
+2. **Convertir un lot d'images** :
+
+   - `magick mogrify -format tiff *.png` : Cette commande utilise `mogrify`, une sous-commande d'ImageMagick, pour convertir toutes les images PNG du répertoire courant en images TIFF. Le paramètre `-format tiff` spécifie le format de sortie (TIFF dans ce cas).
+
+3. **Identifier un format d'image** :
+
+   - `magick identify nuage01.tga` : Cette commande utilise ImageMagick pour identifier les propriétés de l'image "nuage01.tga", telles que son format, ses dimensions, et d'autres informations pertinentes.
+
+4. **Modifier l'enregistrement d'une image** :
+
+   - `magick nuage01.tga -alpha off nuage01_ok.tga` : Cette commande désactive le canal alpha de l'image "nuage01.tga" et enregistre la nouvelle image sous le nom "nuage01_ok.tga".
+
+   - `magick nuage01_ok.tga -compress none nuage01_compr.tiff` : Cette commande modifie l'enregistrement de l'image "nuage01_ok.tga" en supprimant toute compression et enregistre la nouvelle image sous le nom "nuage01_compr.tiff".
+
+5. **Actions sur un lot d'images** :
+
+   - Cette série de commandes utilise une boucle pour traiter chaque fichier PNG dans le répertoire courant. Pour chaque fichier PNG, l'image est recadrée en une grille de 10x10 avec l'angle de départ à (0,0) et ensuite enregistrée avec le suffixe "_c.png". La variable `${file%.png}` est utilisée pour obtenir le nom de fichier sans l'extension .png.
